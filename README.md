@@ -17,12 +17,12 @@
 ## 2) Inspecting Data
 
 #### Inspect Data at Schema Table
-    it will show all header each column - data type also provided here - also can know is our column nullable or not
+    it will show all header each column - data type also provided here - also can know are our columns nullable or not
 #### Inspect Data at Preview Table
-    it will show all column - so we can inspect al column
+    it will show all columns - so we can inspect all columns
 #### Where to query 
     we can choose to query in split tab or in new tab - choose new tab is the best
-#### Query to Show First 10 Rows
+#### Query to Select All Columns for the First 10 Rows only
     SELECT
       *
     FROM
@@ -33,7 +33,59 @@
 
 ## 3) Renaming and Dropping Columns
 
-#### 
+#### Query to Rename New Columns Header from INCIDENT_NUMBER to INCIDENT_ID but INCIDENT_NUMBER Still Remains
+    SELECT
+      *, INCIDENT_NUMBER AS INCIDENT_ID
+    FROM
+      boston.crime
+    LIMIT 10
+#### Query to Rename New Columns Header from INCIDENT_NUMBER to INCIDENT_ID and Drop INCIDENT_NUMBER 
+    SELECT
+      * EXCEPT(INCIDENT_NUMBER), INCIDENT_NUMBER AS INCIDENT_ID
+    FROM
+      boston.crime
+    LIMIT 10
+#### Query to Select All Columns Except INCIDENT_NUMBER will be Drop 
+    SELECT
+      * EXCEPT(INCIDENT_NUMBER)
+    FROM
+      boston.crime
+    LIMIT 10  
+#### Query to Drop Permanently INCIDENT_NUMBER 
+    ALTER TABLE boston.crime
+    DROP COLUMN INCIDENT_NUMBER
+
+---
+
+## 4) Dropping Duplicates and Handling Missing Values
+
+#### Query to Remove All Duplicates Rows
+    SELECT
+      DISTINCT *
+    FROM
+      boston.crime
+    LIMIT 10
+#### Query to Shows Missing Values Null in DISTRICT
+    SELECT
+      DISTINCT *
+    FROM
+      boston.crime
+    WHERE DISTRICT IS NULL
+#### Query to Filling Null Values in DISTRICT with Unknown
+    UPDATE boston.crime
+    SET DISTRICT="Unknown"
+    WHERE DISTRICT IS NULL
+
+---
+
+## 5) Changing Data Types
+
+#### Query to
+
+
+---
+
+## 6)
 ####
 ####
 ####
