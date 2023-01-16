@@ -78,7 +78,7 @@
 
 ---
 
-## 5) Changing Data Types To be continue]
+## 5) Changing Data Types [To be continue]
 
 #### Query to
 
