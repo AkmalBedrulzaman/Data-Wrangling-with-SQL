@@ -80,7 +80,7 @@
 
 ## 5) Changing Data Types
 
-#### Query to Change Data Type Timestamp to Date
+#### Query to Change Data Type from Timestamp to Date
     SELECT
       *, CAST(OCCURRED_ON_DATE AS date) 
     FROM
@@ -131,3 +131,20 @@
       boston.crime
     WHERE
       HOUR BETWEEN 12 AND 14
+      
+---
+
+## 7) Manipulating Text Data
+
+#### Query to Split String
+    SELECT
+      *, SUBSTR(DISTRICT, 1, 1)
+    FROM
+      boston.crime
+    LIMIT 10
+#### Query to Concatenate String
+    SELECT
+      *, CONCAT(OFFENSE_CODE, " ", OFFENSE_CODE_GROUP)
+    FROM
+      boston.crime
+    LIMIT 10
