@@ -134,7 +134,7 @@
       
 ---
 
-## 7) Manipulating Text Data
+## 8) Manipulating Text Data
 
 #### Query to Split String
     SELECT
@@ -148,3 +148,42 @@
     FROM
       boston.crime
     LIMIT 10
+      
+---
+
+## 9) Merging Data
+
+#### Query to Merge 2 Dataset crime and offense_codes
+    SELECT
+      *
+    FROM
+      boston.crime
+    INNER JOIN
+      boston.offense_codes
+      ON crime.OFFENSE_CODE = offense_codes.CODE
+    LIMIT 10
+          
+---
+
+## 10) The Group By Command
+
+#### Query to see All Unique Value in DISTRICT  Column
+    SELECT
+      DISTRICT
+    FROM
+      boston.crime
+    GROUP BY
+      DISTRICT
+      
+---
+
+## 11) Verifying and Exporting Data in BigQuery
+
+#### History Query
+    project history - then we can see all history
+#### Saving Query  
+    save - save query
+#### Exporting Data
+    save results - choose CSV, JS0N or Google Sheets
+
+____
