@@ -78,15 +78,56 @@
 
 ---
 
-## 5) Changing Data Types [To be continue]
+## 5) Changing Data Types
 
-#### Query to
-
+#### Query to Change Data Type Timestamp to Date
+    SELECT
+      *, CAST(OCCURRED_ON_DATE AS date) 
+    FROM
+      boston.crime
+#### Query to Change Data Type Timestamp to Date and Rename it
+    SELECT
+      *, CAST(OCCURRED_ON_DATE AS date) AS DATE
+    FROM
+      boston.crime
 
 ---
 
-## 6)
-####
-####
-####
-####
+## 6) Handling Inconsistent Data Entry
+
+#### Query to Check String Length More Than 2
+    SELECT
+      LENGTH(DISTRICT) AS length_district
+    FROM
+      boston.crime
+    WHERE
+      LENGTH(DISTRICT) > 2
+#### Query to Trim All Whitespaces
+    UPDATE boston.crime
+    SET OFFENSE_CODE_GROUP = TRIM(OFFENSE_CODE_GROUP)
+    WHERE TRUE
+#### Query to see Max and Min Value
+    SELECT
+      MIN(HOUR) AS min_hour,
+      MAX(HOUR) AS max_hour
+    FROM
+      boston.crime
+      
+---
+
+## 7) Sorting and Filtering Columns
+
+#### Query to Sorting Hour in Descending Order
+    SELECT
+      *
+    FROM
+      boston.crime
+    ORDER BY
+      HOUR DESC
+#### Query to Filtering Hour Between 12 until 14 only
+    SELECT
+      * 
+    FROM
+      boston.crime
+    WHERE
+      HOUR BETWEEN 12 AND 14
